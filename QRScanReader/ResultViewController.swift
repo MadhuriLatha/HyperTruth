@@ -49,7 +49,8 @@ class ResultViewController: UIViewController, UITableViewDelegate, UITableViewDa
         responseMessageview.isHidden = false
         messageLabel.text = message
         if error {
-            messageImageView.image = UIImage(named: "failure.jpg")
+//            messageImageView.image = UIImage(named: "failure.jpg")
+            messageImageView.image = UIImage(named: "counterfeit.jpg")
             messageLabel.textColor = UIColor.red
         }else {
             messageImageView.image = UIImage(named: "success.png")
@@ -74,12 +75,6 @@ class ResultViewController: UIViewController, UITableViewDelegate, UITableViewDa
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "historyCell", for: indexPath) as! HistoryTableViewCell
-//        let model = historyArray[indexPath.row] as! HistoryDataModel
-//        cell.serialLabel.text = model.serialNumber
-//        cell.modelLabel.text = model.modelNumber
-//        cell.currentPosLabel.text = model.currentPosition
-//        cell.nextPosLabel.text = model.nextPosition
-//        cell.locationLabel.text = model.location
         return cell
     }
     
@@ -91,6 +86,7 @@ class ResultViewController: UIViewController, UITableViewDelegate, UITableViewDa
         historyCell?.currentPosLabel?.text = model.currentPosition
         historyCell?.nextPosLabel?.text = model.nextPosition
         historyCell?.locationLabel?.text = model.location
+        historyCell?.dateAndTimeLabel?.text = model.dateAndtime
         
         if model.counterfeitFlag == "1"{
             historyCell?.serialLabel.textColor = UIColor.red
@@ -98,6 +94,7 @@ class ResultViewController: UIViewController, UITableViewDelegate, UITableViewDa
             historyCell?.currentPosLabel.textColor = UIColor.red
             historyCell?.nextPosLabel.textColor = UIColor.red
             historyCell?.locationLabel.textColor = UIColor.red
+            historyCell?.dateAndTimeLabel.textColor = UIColor.red
         }
     }
 }

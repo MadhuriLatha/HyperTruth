@@ -9,7 +9,6 @@
 struct KeychainConfiguration {
     static let serviceName = "QRScanReader"
     static let accessGroup: String? = nil
-    
     static let ipAddressName = "IPAddress"
     
 }

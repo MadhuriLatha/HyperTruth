@@ -17,6 +17,7 @@ class QRScanViewController: UIViewController, UITextViewDelegate {
     @IBOutlet weak var rightView: UIView!
     @IBOutlet weak var bottomView: UIView!
     @IBOutlet weak var progressView: UIProgressView!
+    @IBOutlet weak var loadingIndicator: UIActivityIndicatorView!
     
     var captureSession = AVCaptureSession()
     var videoPreviewLayer: AVCaptureVideoPreviewLayer?
@@ -123,15 +124,14 @@ class QRScanViewController: UIViewController, UITextViewDelegate {
             view.addSubview(qrCodeFrameView)
             view.bringSubview(toFront: qrCodeFrameView)
         }
-//        updateProgressView()
-        progressView.setProgress(0.2, animated: true)
+        progressView.setProgress(0.0, animated: true)
 
     }
     
     func getCurrentDateAndTime() -> String {
         let date = Date()
         let formatter = DateFormatter()
-        formatter.dateFormat = "YYYY-MM-DD HH:mm"
+        formatter.dateFormat = "dd/MM/YYYY  HH:mm"
         return formatter.string(from: date)
     }
     
@@ -279,7 +279,6 @@ class QRScanViewController: UIViewController, UITextViewDelegate {
                                     let responseValue = JSON as! NSDictionary
                                     print("Response:: \(responseValue)")
                                     if responseValue["transaction"] != nil{
-                                        self.progressView.setProgress(1.0, animated: true)
                                         self.transcationId = responseValue["transaction"] as! String
                                         self.responseMessage = "Transcation Updated successfully"
                                         self.error = false
@@ -297,6 +296,7 @@ class QRScanViewController: UIViewController, UITextViewDelegate {
                                 }
             }
         }
+        hideLoadingView()
     }
     
     func getAllHistoryRequest(serviceUrl: String) {
@@ -317,8 +317,6 @@ class QRScanViewController: UIViewController, UITextViewDelegate {
                                 print("Response:: \(JSON)")
                                 let responseValue = JSON as! NSDictionary
                                 if responseValue["result"] != nil{
-                                    self.progressView.setProgress(1.0, animated: true)
-
                                     self.parseHistoryData(data: responseValue["result"] as! Array)
                                     self.showResultScreen()
                                 } else if responseValue["ok"] != nil{
@@ -327,7 +325,7 @@ class QRScanViewController: UIViewController, UITextViewDelegate {
                                     self.showResultScreen()
                                 }else{
                                     //Response is null
-                                    self.responseMessage = "Transcation failed"
+                                    self.responseMessage = "Counterfeit has been identified!!!"
                                     self.error = true
                                     self.showResultScreen()
                                 }
@@ -336,6 +334,7 @@ class QRScanViewController: UIViewController, UITextViewDelegate {
                                 print(response.result.error!)
                             }
         }
+        hideLoadingView()
     }
     
     lazy var checkForFaultDevice: () -> Void = {
@@ -379,7 +378,6 @@ class QRScanViewController: UIViewController, UITextViewDelegate {
                                 }else{
                                     self.error = false
                                     self.responseMessage = "Transcation Updated successfully"
-
                                     self.showResultScreen()
                                 }
                             }
@@ -387,6 +385,7 @@ class QRScanViewController: UIViewController, UITextViewDelegate {
                                 print(response.result.error!)
                             }
         }
+        hideLoadingView()
         return{}
     }()
     
@@ -425,8 +424,8 @@ class QRScanViewController: UIViewController, UITextViewDelegate {
     func parseHistoryData(data:[[String: Any]]) {
         for dict in data{
             if let historyItem = dict["value"] as? [String:Any]{
-                let model = HistoryDataModel.init(currentPos: historyItem["CP"] as! String, nextPos: historyItem["NP"] as! String, serialNum: historyItem["SerialNumber"] as! String, modelNum: historyItem["ModelNumber"] as! String, location: historyItem["Location"] as! String)
-                model.counterfeitFlag = historyItem["CFlag"] as! String
+                let model = HistoryDataModel.init(currentPos: historyItem["CP"] as! String, nextPos: historyItem["NP"] as! String, serialNum: historyItem["SerialNumber"] as! String, modelNum: historyItem["ModelNumber"] as! String, location: historyItem["Location"] as! String, cfFlag: historyItem["CFlag"] as! String, dateTime: historyItem["Date_time"] as! String)
+//                model.counterfeitFlag = historyItem["CFlag"] as! String
                 self.historyData.append(model)
             }
         }
@@ -444,6 +443,17 @@ class QRScanViewController: UIViewController, UITextViewDelegate {
             controller.historyArray = self.historyData
         }
     }
+    
+    func showLoadingView() {
+        loadingIndicator.isHidden = false
+        view.bringSubview(toFront: loadingIndicator)
+        loadingIndicator.startAnimating()
+    }
+    
+    func hideLoadingView() {
+        loadingIndicator.stopAnimating()
+        loadingIndicator.isHidden = true
+    }
 }
 
 extension QRScanViewController: AVCaptureMetadataOutputObjectsDelegate {
@@ -453,8 +463,6 @@ extension QRScanViewController: AVCaptureMetadataOutputObjectsDelegate {
         if metadataObjects.count == 0 {
             qrCodeFrameView?.frame = CGRect.zero
             progressView.setProgress(0.0, animated: true)
-
-//            messageLabel.text = "No QR code is detected"
             return
         }
         
@@ -464,21 +472,17 @@ extension QRScanViewController: AVCaptureMetadataOutputObjectsDelegate {
 
         if supportedCodeTypes.contains(metadataObj.type) {
             // If the found metadata is equal to the QR code metadata (or barcode) then update the status label's text and set the bounds
-            progressView.setProgress(0.5, animated: true)
-
+            progressView.setProgress(0.6, animated: true)
             let barCodeObject = videoPreviewLayer?.transformedMetadataObject(for: metadataObj)
+            progressView.setProgress(0.8, animated: true)
             qrCodeFrameView?.frame = barCodeObject!.bounds
-            
-            if metadataObj.stringValue != nil {
-                progressView.setProgress(0.7, animated: true)
+            progressView.setProgress(1.0, animated: true)
 
-                //launchApp(decodedURL: metadataObj.stringValue!)
-                //                messageLabel.text = metadataObj.stringValue
+            if metadataObj.stringValue != nil {
+                captureSession.stopRunning()
+                showLoadingView()
                 getQueryData(metadataObj.stringValue!)
                 return
-                
-                // Save token value in Keychains
-                // saveTokenInKeychains(tokenValue: messageLabel.text!)
             }
         }
     }

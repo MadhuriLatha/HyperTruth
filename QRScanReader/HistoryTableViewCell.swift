@@ -15,6 +15,7 @@ class HistoryTableViewCell: UITableViewCell {
     @IBOutlet weak var serialLabel: UILabel!
     @IBOutlet weak var currentPosLabel: UILabel!
     @IBOutlet weak var locationLabel: UILabel!
+    @IBOutlet weak var dateAndTimeLabel: UILabel!
     
     override func awakeFromNib() {
         super.awakeFromNib()
