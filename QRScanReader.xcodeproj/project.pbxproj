@@ -7,12 +7,24 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		22A1DAB15E9D3D5C0EB9E239 /* Pods_QRScanReader.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 39F70F760891070C8BDDF7C5 /* Pods_QRScanReader.framework */; };
+		B7157AC1203B4C25006BEB65 /* HistoryTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7157AC0203B4C25006BEB65 /* HistoryTableViewCell.swift */; };
+		B766988020342DCE008B2DBD /* Service.swift in Sources */ = {isa = PBXBuildFile; fileRef = B766987F20342DCE008B2DBD /* Service.swift */; };
+		B7C3BEFA2029895200717FF8 /* KeychainPasswordItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7C3BEF92029895200717FF8 /* KeychainPasswordItem.swift */; };
+		B7CBEC8620369D4500F080E6 /* HomeTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7CBEC8520369D4400F080E6 /* HomeTableViewCell.swift */; };
+		B7CBEC882036FC5800F080E6 /* KeychainConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7CBEC872036FC5800F080E6 /* KeychainConfig.swift */; };
+		B7CBEC8A203B07B300F080E6 /* ResultViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7CBEC89203B07B200F080E6 /* ResultViewController.swift */; };
+		B7CBEC8C203B0C3A00F080E6 /* HistoryDataModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7CBEC8B203B0C3A00F080E6 /* HistoryDataModel.swift */; };
+		B7D910EB203BC41D001B18E1 /* HistoryHeaderTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7D910EA203BC41D001B18E1 /* HistoryHeaderTableViewCell.swift */; };
 		B856F82F20203A81007B7A14 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B856F82E20203A81007B7A14 /* AppDelegate.swift */; };
-		B856F83120203A81007B7A14 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B856F83020203A81007B7A14 /* ViewController.swift */; };
 		B856F83420203A81007B7A14 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B856F83220203A81007B7A14 /* Main.storyboard */; };
 		B856F83620203A81007B7A14 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B856F83520203A81007B7A14 /* Assets.xcassets */; };
 		B856F83920203A81007B7A14 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B856F83720203A81007B7A14 /* LaunchScreen.storyboard */; };
 		B856F84420203A81007B7A14 /* QRScanReaderTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B856F84320203A81007B7A14 /* QRScanReaderTests.swift */; };
+		B856F84F20203AE9007B7A14 /* QRScanViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B856F84E20203AE9007B7A14 /* QRScanViewController.swift */; };
+		B8B6361F202ADD4200CA4E90 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8B6361E202ADD4200CA4E90 /* HomeViewController.swift */; };
+		B8B63621202ADD6B00CA4E90 /* TokenEntryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8B63620202ADD6B00CA4E90 /* TokenEntryViewController.swift */; };
+		B8B63625202AE22E00CA4E90 /* UserModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8B63624202AE22E00CA4E90 /* UserModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -26,9 +38,19 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		39F70F760891070C8BDDF7C5 /* Pods_QRScanReader.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_QRScanReader.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		416B816F4075C071DD68DD51 /* Pods-QRScanReader.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-QRScanReader.debug.xcconfig"; path = "Pods/Target Support Files/Pods-QRScanReader/Pods-QRScanReader.debug.xcconfig"; sourceTree = "<group>"; };
+		5D8FB44C4CA673CC0791D2D2 /* Pods-QRScanReader.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-QRScanReader.release.xcconfig"; path = "Pods/Target Support Files/Pods-QRScanReader/Pods-QRScanReader.release.xcconfig"; sourceTree = "<group>"; };
+		B7157AC0203B4C25006BEB65 /* HistoryTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoryTableViewCell.swift; sourceTree = "<group>"; };
+		B766987F20342DCE008B2DBD /* Service.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Service.swift; sourceTree = "<group>"; };
+		B7C3BEF92029895200717FF8 /* KeychainPasswordItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KeychainPasswordItem.swift; sourceTree = "<group>"; };
+		B7CBEC8520369D4400F080E6 /* HomeTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeTableViewCell.swift; sourceTree = "<group>"; };
+		B7CBEC872036FC5800F080E6 /* KeychainConfig.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeychainConfig.swift; sourceTree = "<group>"; };
+		B7CBEC89203B07B200F080E6 /* ResultViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResultViewController.swift; sourceTree = "<group>"; };
+		B7CBEC8B203B0C3A00F080E6 /* HistoryDataModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoryDataModel.swift; sourceTree = "<group>"; };
+		B7D910EA203BC41D001B18E1 /* HistoryHeaderTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoryHeaderTableViewCell.swift; sourceTree = "<group>"; };
 		B856F82B20203A81007B7A14 /* QRScanReader.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = QRScanReader.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B856F82E20203A81007B7A14 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		B856F83020203A81007B7A14 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		B856F83320203A81007B7A14 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		B856F83520203A81007B7A14 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		B856F83820203A81007B7A14 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -36,6 +58,11 @@
 		B856F83F20203A81007B7A14 /* QRScanReaderTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = QRScanReaderTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		B856F84320203A81007B7A14 /* QRScanReaderTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QRScanReaderTests.swift; sourceTree = "<group>"; };
 		B856F84520203A81007B7A14 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		B856F84E20203AE9007B7A14 /* QRScanViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QRScanViewController.swift; sourceTree = "<group>"; };
+		B8B6361E202ADD4200CA4E90 /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
+		B8B63620202ADD6B00CA4E90 /* TokenEntryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TokenEntryViewController.swift; sourceTree = "<group>"; };
+		B8B63624202AE22E00CA4E90 /* UserModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserModel.swift; sourceTree = "<group>"; };
+		B8B63626202C2B2300CA4E90 /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -43,6 +70,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				22A1DAB15E9D3D5C0EB9E239 /* Pods_QRScanReader.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -56,12 +84,23 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		154DA681FBC68BABA7E11024 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				416B816F4075C071DD68DD51 /* Pods-QRScanReader.debug.xcconfig */,
+				5D8FB44C4CA673CC0791D2D2 /* Pods-QRScanReader.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
 		B856F82220203A80007B7A14 = {
 			isa = PBXGroup;
 			children = (
 				B856F82D20203A81007B7A14 /* QRScanReader */,
 				B856F84220203A81007B7A14 /* QRScanReaderTests */,
 				B856F82C20203A81007B7A14 /* Products */,
+				154DA681FBC68BABA7E11024 /* Pods */,
+				D83293314BE0A02693119C69 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -78,11 +117,22 @@
 			isa = PBXGroup;
 			children = (
 				B856F82E20203A81007B7A14 /* AppDelegate.swift */,
-				B856F83020203A81007B7A14 /* ViewController.swift */,
+				B8B6361E202ADD4200CA4E90 /* HomeViewController.swift */,
+				B8B63620202ADD6B00CA4E90 /* TokenEntryViewController.swift */,
+				B856F84E20203AE9007B7A14 /* QRScanViewController.swift */,
+				B7CBEC89203B07B200F080E6 /* ResultViewController.swift */,
+				B7C3BEF92029895200717FF8 /* KeychainPasswordItem.swift */,
+				B766987F20342DCE008B2DBD /* Service.swift */,
 				B856F83220203A81007B7A14 /* Main.storyboard */,
 				B856F83520203A81007B7A14 /* Assets.xcassets */,
 				B856F83720203A81007B7A14 /* LaunchScreen.storyboard */,
 				B856F83A20203A81007B7A14 /* Info.plist */,
+				B8B63624202AE22E00CA4E90 /* UserModel.swift */,
+				B7CBEC8520369D4400F080E6 /* HomeTableViewCell.swift */,
+				B7CBEC872036FC5800F080E6 /* KeychainConfig.swift */,
+				B7CBEC8B203B0C3A00F080E6 /* HistoryDataModel.swift */,
+				B7157AC0203B4C25006BEB65 /* HistoryTableViewCell.swift */,
+				B7D910EA203BC41D001B18E1 /* HistoryHeaderTableViewCell.swift */,
 			);
 			path = QRScanReader;
 			sourceTree = "<group>";
@@ -96,6 +146,15 @@
 			path = QRScanReaderTests;
 			sourceTree = "<group>";
 		};
+		D83293314BE0A02693119C69 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				B8B63626202C2B2300CA4E90 /* CoreLocation.framework */,
+				39F70F760891070C8BDDF7C5 /* Pods_QRScanReader.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -103,9 +162,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = B856F84820203A81007B7A14 /* Build configuration list for PBXNativeTarget "QRScanReader" */;
 			buildPhases = (
+				E8EBB525F0F41940BE7BE5CB /* [CP] Check Pods Manifest.lock */,
 				B856F82720203A80007B7A14 /* Sources */,
 				B856F82820203A80007B7A14 /* Frameworks */,
 				B856F82920203A80007B7A14 /* Resources */,
+				10F98BAB595E3F4B371009D7 /* [CP] Embed Pods Frameworks */,
+				A9693E3B37AC9442A7BABCD6 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -194,13 +256,78 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		10F98BAB595E3F4B371009D7 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${SRCROOT}/Pods/Target Support Files/Pods-QRScanReader/Pods-QRScanReader-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Alamofire.framework",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-QRScanReader/Pods-QRScanReader-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		A9693E3B37AC9442A7BABCD6 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-QRScanReader/Pods-QRScanReader-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		E8EBB525F0F41940BE7BE5CB /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-QRScanReader-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		B856F82720203A80007B7A14 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				B856F83120203A81007B7A14 /* ViewController.swift in Sources */,
+				B8B6361F202ADD4200CA4E90 /* HomeViewController.swift in Sources */,
+				B766988020342DCE008B2DBD /* Service.swift in Sources */,
+				B8B63625202AE22E00CA4E90 /* UserModel.swift in Sources */,
+				B856F84F20203AE9007B7A14 /* QRScanViewController.swift in Sources */,
+				B7CBEC882036FC5800F080E6 /* KeychainConfig.swift in Sources */,
+				B7CBEC8A203B07B300F080E6 /* ResultViewController.swift in Sources */,
+				B7157AC1203B4C25006BEB65 /* HistoryTableViewCell.swift in Sources */,
+				B7CBEC8C203B0C3A00F080E6 /* HistoryDataModel.swift in Sources */,
+				B8B63621202ADD6B00CA4E90 /* TokenEntryViewController.swift in Sources */,
 				B856F82F20203A81007B7A14 /* AppDelegate.swift in Sources */,
+				B7CBEC8620369D4500F080E6 /* HomeTableViewCell.swift in Sources */,
+				B7C3BEFA2029895200717FF8 /* KeychainPasswordItem.swift in Sources */,
+				B7D910EB203BC41D001B18E1 /* HistoryHeaderTableViewCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -351,11 +478,13 @@
 		};
 		B856F84920203A81007B7A14 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 416B816F4075C071DD68DD51 /* Pods-QRScanReader.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = BU7WS3672V;
 				INFOPLIST_FILE = QRScanReader/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.2;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = sony.QRScanReader;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -366,11 +495,13 @@
 		};
 		B856F84A20203A81007B7A14 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 5D8FB44C4CA673CC0791D2D2 /* Pods-QRScanReader.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = BU7WS3672V;
 				INFOPLIST_FILE = QRScanReader/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.2;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = sony.QRScanReader;
 				PRODUCT_NAME = "$(TARGET_NAME)";
