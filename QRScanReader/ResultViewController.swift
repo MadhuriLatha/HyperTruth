@@ -49,7 +49,6 @@ class ResultViewController: UIViewController, UITableViewDelegate, UITableViewDa
         responseMessageview.isHidden = false
         messageLabel.text = message
         if error {
-//            messageImageView.image = UIImage(named: "failure.jpg")
             messageImageView.image = UIImage(named: "counterfeit.jpg")
             messageLabel.textColor = UIColor.red
         }else {

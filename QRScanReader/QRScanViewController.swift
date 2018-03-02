@@ -198,13 +198,13 @@ class QRScanViewController: UIViewController, UITextViewDelegate {
         var value: String!
         switch requestUserType {
         case "M":
-            value = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJleHAiOjE1MTkxMzk2NzQsInVzZXJuYW1lIjoiTWFudWYiLCJvcmdOYW1lIjoiYSIsImlhdCI6MTUxOTEwMzY3NH0.DJS8Mgt0WdQZfmkB8jJ6eEqSSy2km9mKcGSvdTet-lU"
+            value = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJleHAiOjE1MTkzMDcxMzMsInVzZXJuYW1lIjoibWFudWYiLCJvcmdOYW1lIjoiYSIsImlhdCI6MTUxOTI3MTEzM30.pKrwo3FtE657XDPUEI690tViX16n3XxqjQauemt33xw"
         case "D":
-            value = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJleHAiOjE1MTkxMzk3MDQsInVzZXJuYW1lIjoiRGlzdCIsIm9yZ05hbWUiOiJiIiwiaWF0IjoxNTE5MTAzNzA0fQ.qegpglWydyWo5C78LqSd4VeofsVc4UpNNApANiMn_-k"
+            value = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJleHAiOjE1MTkzMDcxMzgsInVzZXJuYW1lIjoiRGlzdCIsIm9yZ05hbWUiOiJiIiwiaWF0IjoxNTE5MjcxMTM4fQ.U_q-ScjbZszU-lDqSny2M9FFGBKiKI4KJNoZnC_xvJQ"
         case "R":
-            value = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJleHAiOjE1MTkxMzk3MzAsInVzZXJuYW1lIjoiUmV0YWlsIiwib3JnTmFtZSI6ImMiLCJpYXQiOjE1MTkxMDM3MzB9.aGC-Fh3TcattZFpgS6DsNvsAmy-bswTxgOZ7_so02to"
+            value = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJleHAiOjE1MTkzMDcxMzYsInVzZXJuYW1lIjoiUmV0YWlsIiwib3JnTmFtZSI6ImMiLCJpYXQiOjE1MTkyNzExMzZ9.oloPxRz_hjUi1MUFid912ht8crMDbqjarrDZDt7q2Wo"
         case "C":
-            value = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJleHAiOjE1MTkxMzk3NTMsInVzZXJuYW1lIjoiZnNtYyIsIm9yZ05hbWUiOiJkIiwiaWF0IjoxNTE5MTAzNzUzfQ.utQsQpExUnJYDUirRtje9e0rYkWyfg8FMxlBimxHFTY"
+            value = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJleHAiOjE1MTkzMDcxMzQsInVzZXJuYW1lIjoiY3VzdCIsIm9yZ05hbWUiOiJkIiwiaWF0IjoxNTE5MjcxMTM0fQ.5A-QhI5Gk3Ze1V1BhhpYcQaCup0o7H5Lhpj_fkveQi4"
         default:
             break
         }
@@ -302,7 +302,7 @@ class QRScanViewController: UIViewController, UITextViewDelegate {
     func getAllHistoryRequest(serviceUrl: String) {
 //        currentLocation = getLocation()
 
-        let headers: HTTPHeaders = ["Authorization": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJleHAiOjE1MTkxMzk3NTMsInVzZXJuYW1lIjoiZnNtYyIsIm9yZ05hbWUiOiJkIiwiaWF0IjoxNTE5MTAzNzUzfQ.utQsQpExUnJYDUirRtje9e0rYkWyfg8FMxlBimxHFTY"]
+        let headers: HTTPHeaders = ["Authorization": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJleHAiOjE1MTkzMDcxMzQsInVzZXJuYW1lIjoiY3VzdCIsIm9yZ05hbWUiOiJkIiwiaWF0IjoxNTE5MjcxMTM0fQ.5A-QhI5Gk3Ze1V1BhhpYcQaCup0o7H5Lhpj_fkveQi4"]
         
         //                let headers: HTTPHeaders = ["Authorization": "Bearer ",\(endUserToken)]
         let value = "%22" + model + "-" + serialNo + "%22"
@@ -317,14 +317,20 @@ class QRScanViewController: UIViewController, UITextViewDelegate {
                                 print("Response:: \(JSON)")
                                 let responseValue = JSON as! NSDictionary
                                 if responseValue["result"] != nil{
-                                    self.parseHistoryData(data: responseValue["result"] as! Array)
-                                    self.showResultScreen()
+                                    if responseValue["result"] as! String == "<null>"{
+                                        self.responseMessage = "Transcation failed"
+                                        self.showResultScreen()
+                                    }else{
+                                        self.parseHistoryData(data: responseValue["result"] as! Array)
+                                        self.showResultScreen()
+                                    }
                                 } else if responseValue["ok"] != nil{
                                     self.responseMessage = "Transcation failed"
                                     self.error = true
                                     self.showResultScreen()
                                 }else{
                                     //Response is null
+                                    print("Response is null")
                                     self.responseMessage = "Counterfeit has been identified!!!"
                                     self.error = true
                                     self.showResultScreen()
@@ -340,7 +346,6 @@ class QRScanViewController: UIViewController, UITextViewDelegate {
     lazy var checkForFaultDevice: () -> Void = {
         let headers: HTTPHeaders = ["Authorization":"Bearer \(getBearerToken())"]
 
-//        let headers: HTTPHeaders = ["Authorization": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJleHAiOjE1MTkwNjkwMjcsInVzZXJuYW1lIjoiRlNNQyIsIm9yZ05hbWUiOiJkIiwiaWF0IjoxNTE5MDMzMDI3fQ.znZ_yXYsvP4wdtfuEWuRnBbQMygwtptMu-4w0y6XDh0"]
         //        let headers: HTTPHeaders = ["Authorization": "Bearer ",\(endUserToken)]
         
         let serviceUrl = "http://" + appDelegate.ipAddress + ":4000/channels/common/transactions/" + self.transcationId + "?peer=peer1"
